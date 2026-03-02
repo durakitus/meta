@@ -9,7 +9,7 @@ use std::path::{Path, PathBuf};
 
 #[derive(Parser, Debug)]
 #[command(
-    author,
+    name = "meta",
     version,
     about = "This is a streamlined command line tool designed to read and update the metadata of your audio files with ease.",
     long_about = "You can use this utility to manage the internal information of your music collection by viewing or modifying tags like titles and artists. It is built to handle multiple files at once and can even pull lyrics directly from a text file to embed them into your tracks. The tool automatically detects the best way to store this information based on the specific format of each audio file to ensure your metadata remains consistent and accurate."
@@ -133,17 +133,17 @@ fn update_metadata(tag: &mut Tag, arguments: &Args) -> Result<()> {
 
 fn display_metadata(tag: &Tag, path: &Path) {
     println!("File: {:?}", path);
-    println!("TITLE:  {}", tag.title().as_deref().unwrap_or(""));
+    println!("TITLE: {}", tag.title().as_deref().unwrap_or(""));
     println!("ARTIST: {}", tag.artist().as_deref().unwrap_or(""));
-    println!("DISK:   {}", tag.album().as_deref().unwrap_or(""));
+    println!("DISK: {}", tag.album().as_deref().unwrap_or(""));
 
     let year_display = tag.get_string(ItemKey::Year).unwrap_or("");
-    println!("YEAR:   {}", year_display);
+    println!("YEAR: {}", year_display);
 
-    println!("GENRE:  {}", tag.genre().as_deref().unwrap_or(""));
+    println!("GENRE: {}", tag.genre().as_deref().unwrap_or(""));
 
     if let Some(lyrics_data) = tag.get_string(ItemKey::Lyrics) {
-        println!("LYRICS: Found ({} characters)", lyrics_data.len());
+        println!("LYRICS: Found, {} characters", lyrics_data.len());
     }
     println!("---");
 }
