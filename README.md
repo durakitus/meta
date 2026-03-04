@@ -22,10 +22,8 @@ cargo build --release
 ## Usage
 Some example commands could be:
 
-`meta -t <title> -a <artist> -n <track_number> <file>` — adding/editing some basic metadata.
-
-`meta -a <artist> -d <album> *` — batch edition to organize a collection by album and artist.
-
-`meta -l <lyrics_file> <audio_file>` — adding lyrics to an audio file from a given text file.
+- `meta -t <title> -a <artist> -n <track_number> <file>` — adding/editing some basic metadata.
+- `meta -a <artist> -d <album> *` — batch edition to organize a collection by album and artist.
+- `meta -l <lyrics_file> <audio_file>` — adding lyrics to an audio file from a given text file.
 
 Run `meta -h` — or use `cargo run -- -h` inside the project folder if it's not in your `PATH` — for more usage details, if you decide to build it.
